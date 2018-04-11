@@ -14,6 +14,13 @@ function largest(list){
 //Task 2
 function reverse(list){
 
+    let temp;
+    let reverseList = [];
+
+    for (let w = list.length-1; w < 0; w = w-1) {
+        reverseList.push(list[w]);
+    }
+    return reverseList;
 }
 
 //Task 3
@@ -24,11 +31,18 @@ function contains(list,e){
             return true;
         }
     }
-
+    return false;
 }
 
 //Task 4
 function oddElements(list){
+
+    let newArray = [];
+
+    for (let a = 1; a < list.length; a = a + 2){
+        newArray.push(list[a]);
+    }
+    return newArray;
 
 }
 
@@ -77,14 +91,15 @@ function fibonacci(){
 
 }
 
-
 function main(){
     let list = [1, 2, 3, 4, 5, 6, 7, 8];
-    let e = 35;
+    let e = 7;
 
     console.log(largest(list));
+    console.log(reverse());
     console.log(contains(list, e));
     console.log(total(list));
+    console.log(oddElements(list));
 }
 
 main();
