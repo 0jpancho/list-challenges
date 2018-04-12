@@ -14,10 +14,9 @@ function largest(list){
 //Task 2
 function reverse(list){
 
-    let temp;
     let reverseList = [];
 
-    for (let w = list.length-1; w < 0; w = w-1) {
+    for (let w = list.length-1; w >= 0; w = w-1) {
         reverseList.push(list[w]);
     }
     return reverseList;
@@ -58,12 +57,36 @@ function total(list){
 //Task 6
 function isPalindrome(list){
 
+    let reverseList = [];
+
+    for (let w = list.length-1; w >= 0; w = w-1) {
+        reverseList.push(list[w]);
+    }
+
+    for(let d = 0; d < list.length; d++){
+
+        if(list[d] !== reverseList[d]){
+            return false;
+        }
+    }
+    return true
+
 }
 
 //Task 7
 //Do second to last
 function recursiveTotal(list){
 
+    let n = list.length
+
+    function sum(n){
+        if (n==0) {
+            
+        }
+        else {
+            return sum(n-1);
+        }
+    }
 }
 //Task 8
 function concatenate(listA, listB){
@@ -92,14 +115,15 @@ function fibonacci(){
 }
 
 function main(){
-    let list = [1, 2, 3, 4, 5, 6, 7, 8];
+    let list = [1, 1, 1, 3, 3, 1, 1, 1];
     let e = 7;
 
-    console.log(largest(list));
-    console.log(reverse());
-    console.log(contains(list, e));
-    console.log(total(list));
-    console.log(oddElements(list));
+    //console.log(largest(list));
+    //console.log(reverse(list));
+    //console.log(contains(list, e));
+    //console.log(total(list));
+    //console.log(oddElements(list));
+    console.log(isPalindrome(list));
 }
 
 main();
