@@ -77,19 +77,39 @@ function isPalindrome(list){
 //Do second to last
 function recursiveTotal(list){
 
-    let n = list.length
-
-    function sum(n){
-        if (n==0) {
-            
+    let n = list.length;
+    if (n == 0) {
+        return 0;
+    }
+    else if (n == 1)
+    {
+        return list[0];
+    }
+    else{
+        let rest = [];
+        for (let i = 1; i <= list.length-1; i++) {
+            rest[i-1]=list[i];
         }
-        else {
-            return sum(n-1);
-        }
+        console.log(rest);
+        return list[0]+recursiveTotal(rest);
     }
 }
 //Task 8
 function concatenate(listA, listB){
+
+    let newArray = [];
+
+    for (let c = 0; c < listA.length; c++)
+    {
+        newArray.push(listA[c]);
+    }
+
+    for (let b = 0; b < listB.length; b++)
+    {
+        newArray.push(listB[b]);
+    }
+
+    return newArray;
 
 }
 
@@ -118,12 +138,17 @@ function main(){
     let list = [1, 1, 1, 3, 3, 1, 1, 1];
     let e = 7;
 
+    let listA = ["a", "b", "c"];
+    let listB = [4, 5, 6];
+
     //console.log(largest(list));
     //console.log(reverse(list));
     //console.log(contains(list, e));
     //console.log(total(list));
     //console.log(oddElements(list));
-    console.log(isPalindrome(list));
+    //console.log(isPalindrome(list));
+    console.log(recursiveTotal(list));
+    //console.log(concatenate(listA, listB));
 }
 
 main();
